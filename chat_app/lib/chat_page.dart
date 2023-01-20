@@ -33,22 +33,9 @@ class ChatPage extends StatelessWidget {
                                 font_size: 12,
                                 text_color: Colors.grey,
                                 main_text: '18.35'),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 30),
-                              decoration: BoxDecoration(
-                                  color: Colors.grey.shade400,
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(25),
-                                    topRight: Radius.circular(25),
-                                    bottomLeft: Radius.circular(25),
-                                    bottomRight: Radius.circular(0),
-                                  )),
-                              child: PrimaryText(
-                                  main_text: 'Hello',
-                                  font_size: 12,
-                                  text_color: Colors.black),
-                            )
+                            ChatContent(
+                              msg: "Hello",
+                            ),
                           ],
                         ),
                       )
@@ -116,6 +103,31 @@ class ChatPage extends StatelessWidget {
                   font_size: 12, text_color: Colors.white, main_text: 'back'))
         ],
       ),
+    );
+  }
+}
+
+class ChatContent extends StatelessWidget {
+  const ChatContent({
+    Key? key,
+    required this.msg,
+  }) : super(key: key);
+  final String msg;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+      decoration: BoxDecoration(
+          color: Colors.grey.shade400,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(25),
+            topRight: Radius.circular(25),
+            bottomLeft: Radius.circular(25),
+            bottomRight: Radius.circular(0),
+          )),
+      child:
+          PrimaryText(main_text: msg, font_size: 12, text_color: Colors.black),
     );
   }
 }
